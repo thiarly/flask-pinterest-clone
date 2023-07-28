@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="/css/homepage.css">
-</head>
-<body>
+{% extends "homepage.html" %}
+
+
+{% block title %} Perfil - {{usuario}} {% endblock %}
+
+
+{% block body %}
+
     <h1>PERFIL USUÁRIOS</h1>
     <p>Perfil do usuário: {{ usuario }}</p>
-
     <a href="/">Home</a>
-</body>
-</html>
+
+{% endblock %}

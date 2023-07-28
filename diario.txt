@@ -1,0 +1,26 @@
+# INSTALANDO BANCO DE DADOS
+
+1. pip install flask-sqlalchemy
+    1.1 ir no arquivo __init__ para criar o banco de DADOS
+        1.2 from flask_sqlalchemy import SQLAlchemy
+        1.3 database = SQLAlchemy(app)
+        1.4 criar a variavel:
+            1.5 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pinterest.db"
+        1.5 criar banco
+            1.6 criar um arquivo criar_banco.py
+                1.7 from pinterest import app, database
+                    with app.app_context():
+                        database.create_all()
+
+
+2. criar as classes no models.py
+    2.1 import database do __init__.py para conseguir criar as tabelas no banco
+        2.2 após criar todas as class no models, excluir o banco e criar novamente importando as class para criação das tables
+        2.3 
+
+
+3. criar o sistema de login
+    3.1 pip install flask_login flask_bcrypt
+
+
+4. criar o form

@@ -1,0 +1,39 @@
+{%extends "homepage.html"%}
+
+{% block title %} Criar Conta {% endblock %}
+
+
+{% block body %}
+<div class="centralizar">
+    <h1>CRIAR CONTA</h1>
+    <h3>-----------------*----------------</h3>
+
+
+    {% block formulario %}
+
+    <form method="POST">
+        {{ formcriarconta.csrf_token }}
+        <p>{{ formcriarconta.email.label }}
+            {{  formcriarconta.email }}</p>
+
+        <p>{{ formcriarconta.usuario.label }}
+        {{ formcriarconta.usuario }}</p>
+
+        <p>{{ formcriarconta.senha.label }}
+        {{ formcriarconta.senha }}</p>
+
+        <p>{{ formcriarconta.confirmacao_senha.label }}
+            {{ formcriarconta.confirmacao_senha }}</p>
+        
+        <p>{{ formcriarconta.botao_confirmacao }}</p>        
+
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+{% endblock %}
+
+

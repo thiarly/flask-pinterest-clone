@@ -9,26 +9,17 @@ from pinterest.models import Usuario
 
 @app.route("/", methods=["GET", "POST"])
 def homepage():
-    print("Homepage function called")  # Esta linha vai imprimir uma mensagem quando a função homepage for chamada
     form_login = FormLogin()
     if form_login.validate_on_submit():
         print('Form validado')
-    
-        
         usuario = Usuario.query.filter_by(email=form_login.email.data).first()
         if usuario:
-            print("Usuario encontrado: ", usuario.usuario)  # Esta linha vai imprimir o nome de usuário se um usuário for encontrado
             if bcrypt.check_password_hash(usuario.senha, form_login.senha.data):
                 print('Usuário e senha corretos')
                 login_user(usuario)
-                print("Usuario atual: ", current_user.usuario)  # Esta linha vai imprimir o nome de usuário do usuário logado
-            
                 return redirect(url_for("perfil", usuario=usuario.usuario))
-        else:
-            print("Usuario nao encontrado")  # Esta linha vai imprimir uma mensagem se nenhum usuário for encontrado
     else:
         print("Formulario nao validado", form_login.errors)  # Esta linha vai imprimir uma mensagem se o formulário não for validado
-    
     return render_template("homepage.html", formlogin=form_login)
 
 

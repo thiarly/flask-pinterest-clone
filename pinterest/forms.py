@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 from pinterest.models import Usuario
 
 class FormLogin (FlaskForm):
-    usuario = StringField("Usuario", validators=[DataRequired(), Email()])
+    email = StringField("Usuario", validators=[DataRequired(), Email()])
     senha = PasswordField("Senha", validators=[DataRequired(), Length(min=6, max=10, message="A senha deve ter entre 6 e 10 caracteres")])
     botao_confirmacao = SubmitField("Fazer Login")
     
@@ -24,10 +24,5 @@ class FormCriarConta (FlaskForm):
         if usuario:
             return ValidationError("O e-mail já está cadastrado")
     
-    
-    
-    
-    
-    
-    
+
 

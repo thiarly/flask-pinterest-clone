@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     <title>
         {% block title %} 
         Homepage 
@@ -14,9 +14,24 @@
 
 
 {% block body %}
-<body>
+<body class="centralizar">
     <h1>HOMEPAGE SITE</h1>
-    <p>Agora vamos continuar o site</p>
+    <h3>Agora vamos continuar o site</h3>
+
+    {% block formulario %}
+
+    <p>Olá, {{ usuario }}!</p>
+    <form method="POST">
+        {{ formlogin.csrf_token }}
+        <p>{{ formlogin.usuario.label }}
+        {{ formlogin.usuario }}</p>
+        <p>{{ formlogin.senha.label }}
+        {{ formlogin.senha }}</p>
+        <p>{{ formlogin.botao_confirmacao }}</p>        
+    </form>
+
+    {% endblock %}
+    
 </body>
 </html>
 

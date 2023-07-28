@@ -7,7 +7,7 @@ from pinterest.models import Usuario
 
 class FormLogin (FlaskForm):
     usuario = StringField("Usuario", validators=[DataRequired(), Email()])
-    login = PasswordField("Senha", validators=[DataRequired(), Length(min=6, max=10, message="A senha deve ter entre 6 e 10 caracteres")])
+    senha = PasswordField("Senha", validators=[DataRequired(), Length(min=6, max=10, message="A senha deve ter entre 6 e 10 caracteres")])
     botao_confirmacao = SubmitField("Fazer Login")
     
     

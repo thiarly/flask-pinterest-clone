@@ -23,10 +23,8 @@
     <p>Olá, {{ usuario }}!</p>
     <form method="POST">
         {{ formlogin.csrf_token }}
-        <p>{{ formlogin.usuario.label }}
-        {{ formlogin.usuario }}</p>
-        <p>{{ formlogin.senha.label }}
-        {{ formlogin.senha }}</p>
+        <p>{{ formlogin.email.label }} {{ formlogin.email }}</p>
+        <p>{{ formlogin.senha.label }} {{ formlogin.senha }}</p>
         <p>{{ formlogin.botao_confirmacao }}</p>        
     </form>
 

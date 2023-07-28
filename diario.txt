@@ -23,4 +23,9 @@
     3.1 pip install flask_login flask_bcrypt
 
 
-4. criar o form
+4. criar o forms
+    4.1 pip install flask-wtf
+    4.2 pip install e-mail-validator
+    4.3 importar flask_wtf e FlaskForm no forms.py
+    4.4 importar wtforms import StringField, PasswordField, SubmitField
+        4.5 criar as classes no flask form

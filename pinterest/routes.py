@@ -17,7 +17,7 @@ def homepage():
             if bcrypt.check_password_hash(usuario.senha, form_login.senha.data):
                 print('Usuário e senha corretos')
                 login_user(usuario)
-                return redirect(url_for("perfil", usuario=usuario.usuario))
+                return redirect(url_for("perfil", id_usuario=usuario.id))
     else:
         print("Formulario nao validado", form_login.errors)  # Esta linha vai imprimir uma mensagem se o formulário não for validado
     return render_template("homepage.html", formlogin=form_login)
@@ -36,15 +36,19 @@ def criar_conta():
         flash("Conta criada com sucesso!", "success")
         login_user(usuario, remember=True)
                 
-        return redirect(url_for("perfil", usuario=usuario.usuario))
+        return redirect(url_for("perfil", id_usuario=usuario.id))
      
     return render_template("criar-conta.html", formcriarconta=form_criarconta)
 
 
-@app.route("/perfil/<usuario>")
+@app.route("/perfil/<id_usuario>")
 @login_required
-def perfil(usuario):
-    return render_template("perfil.html", usuario=usuario)
+def perfil(id_usuario):
+    if int(id_usuario) == int(current_user.id):
+        return render_template("perfil.html", usuario=current_user)
+    else:
+        usuario = Usuario.query.get(int(id_usuario))
+        return render_template("perfil.html", usuario=usuario)
 
 
 @app.route("/logout")

@@ -1,7 +1,7 @@
 # criar os formulários do nosso site
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, FileField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from pinterest.models import Usuario
 
@@ -24,5 +24,7 @@ class FormCriarConta (FlaskForm):
         if usuario:
             return ValidationError("O e-mail já está cadastrado")
     
-
-
+    
+class FormFoto(FlaskForm):
+    foto = FileField("Foto", validators=[DataRequired()])
+    botao_confirmacao = SubmitField("Enviar")

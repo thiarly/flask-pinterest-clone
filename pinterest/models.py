@@ -15,7 +15,7 @@ class Usuario(database.Model, UserMixin):
     foto = database.relationship("Foto", backref="usuario", lazy=True)
 
 
-class Foto(database.Model):
+class Foto(database.Model): 
     id = database.Column(database.Integer, primary_key=True)
     imagem = database.Column(database.String, default="default.jpg")
     data_criacao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())

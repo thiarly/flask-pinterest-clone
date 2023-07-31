@@ -29,3 +29,6 @@
     4.3 importar flask_wtf e FlaskForm no forms.py
     4.4 importar wtforms import StringField, PasswordField, SubmitField
         4.5 criar as classes no flask form
+
+
+pinterest/static/image/fotos_post/pinterest-1.jpg

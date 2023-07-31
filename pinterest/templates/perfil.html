@@ -5,13 +5,24 @@
 
 
 {% block body %}
+{% include 'navbar.html' %}
+
 
     <h1>PERFIL USUÁRIOS</h1>
     <p>Perfil do usuário: {{ usuario.usuario }}</p>
-    <a href="{{url_for('logout')}}">Sair</a>
+    
+
+    {% if formfoto %}
+    <form method="POST" enctype="multipart/form-data">
+        {{ formfoto.csrf_token }}
+        {{ formfoto.foto }}
+        {{ formfoto.botao_confirmacao }}
+    </form> 
+    {% endif %}
+
 
 {% for foto in usuario.foto %}
-
+    <img src="{{ url_for('static', filename='/image/fotos_post/{}'.format(foto.imagem)) }}">
 {% endfor %}
 
 {% endblock %}

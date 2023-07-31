@@ -9,6 +9,7 @@ from flask_bcrypt import Bcrypt
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pinterest.db"
 app.config["SECRET_KEY"] = "b65ef8da938312e02784e9c0f37c955e3d030f52cdb7afe3c9c913190223"
+app.config["UPLOAD_FOLDER"] = "static/image/fotos_post/"
 
 
 database = SQLAlchemy(app)

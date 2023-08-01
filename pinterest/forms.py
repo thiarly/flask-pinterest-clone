@@ -10,6 +10,12 @@ class FormLogin (FlaskForm):
     senha = PasswordField("Senha", validators=[DataRequired(), Length(min=6, max=10, message="A senha deve ter entre 6 e 10 caracteres")])
     botao_confirmacao = SubmitField("Fazer Login")
     
+    # como coloquei unique=true no banco de dados, preciso verificar se o usuario ou email já existem
+    def validate_email(self, email):
+        usuario = Usuario.query.filter_by(email=email.data).first()
+        if not usuario:
+            raise ValidationError("O e-mail não está cadastrado, faça seu cadastro.")
+        
     
 class FormCriarConta (FlaskForm):
     email = StringField("E-mail", validators=[DataRequired(), Email()])
@@ -22,7 +28,13 @@ class FormCriarConta (FlaskForm):
     def validate_email(self, email):
         usuario = Usuario.query.filter_by(email=email.data).first()
         if usuario:
-            return ValidationError("O e-mail já está cadastrado")
+            raise ValidationError("O e-mail já está cadastrado")
+    
+    def validate_usuario(self, usuario):
+        usuario = Usuario.query.filter_by(usuario=usuario.data).first()
+        if usuario:
+            raise ValidationError("O nome de usuário já está cadastrado")
+    
     
     
 class FormFoto(FlaskForm):

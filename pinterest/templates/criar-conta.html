@@ -25,21 +25,41 @@
 
           <div class="div-input">
             <label for="email" class="label">E-mail:</label>
+            {% if formcriarconta.email.errors %}
+                {% for erro in formcriarconta.email.errors %}
+                    <p style="color: red"> {{ erro }}</p>
+                {% endfor %}
+            {% endif %}
             <input type="email" id="email" name="email" class="input" placeholder="Digite seu e-mail aqui">
           </div>
 
           <div class="div-input">
             <label for="usuario" class="label">Usuário:</label>
+            {% if formcriarconta.usuario.errors %}
+            {% for erro in formcriarconta.usuario.errors %}
+                <p style="color: red"> {{ erro }}</p>
+            {% endfor %}
+            {% endif %}
             <input type="text" id="usuario" name="usuario" class="input" placeholder="Digite seu usuário aqui">
           </div>
 
           <div class="div-input">
             <label for="senha" class="label">Senha:</label>
+            {% if formcriarconta.senha.errors %}
+            {% for erro in formcriarconta.senha.errors %}
+                <p style="color: red"> {{ erro }}</p>
+            {% endfor %}
+            {% endif %}
             <input type="password" id="senha" name="senha" class="input" placeholder="Digite sua senha aqui">
           </div>
           
           <div class="div-input">
             <label for="confirmacao_senha" class="label">Senha:</label>
+            {% if formcriarconta.confirmacao_senha.errors %}
+            {% for erro in formcriarconta.confirmacao_senha.errors %}
+                <p style="color: red"> {{ erro }}</p>
+            {% endfor %}
+            {% endif %}
             <input type="password" id="confirmacao_senha" name="confirmacao_senha" class="input" placeholder="Confirme seu e-mail.">
           </div>
 

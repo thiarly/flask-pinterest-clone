@@ -26,7 +26,7 @@ from pinterest import routes
 
 
 
-from pinterest import models
+from pinterest.models import Usuario
 
 engine = sqlalchemy.create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
 inspector = sqlalchemy.inspect(engine)

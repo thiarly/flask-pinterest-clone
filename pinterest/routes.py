@@ -1,12 +1,13 @@
 # criar as rotas do nosso site (os links)
 
-from flask import Flask, render_template, url_for, redirect, flash
+from flask import Flask, render_template, url_for, redirect, flash, current_app
 from pinterest import app, bcrypt, database
 from flask_login import login_required, login_user, logout_user, current_user
 from pinterest.forms import FormLogin, FormCriarConta, FormFoto
 from pinterest.models import Usuario, Foto
 import os
 from werkzeug.utils import secure_filename
+import sqlalchemy
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -82,3 +83,5 @@ def logout():
 def feed():
     fotos = Foto.query.order_by(Foto.data_criacao.desc()).all() #[:100]
     return render_template("feed.html", fotos=fotos)
+
+

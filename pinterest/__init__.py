@@ -11,7 +11,7 @@ app.config["SECRET_KEY"] = "b65ef8da938312e02784e9c0f37c955e3d030f52cdb7afe3c9c9
 if os.getenv('DATABASE_URL'):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL')
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pinterest.db"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///../pinterest.db"
 
 app.config["UPLOAD_FOLDER"] = "static/image/fotos_post/"
 
@@ -20,6 +20,9 @@ login_manager = LoginManager(app)
 login_manager.login_view = "homepage"
 
 database = SQLAlchemy(app)
+
+from pinterest import routes
+
 
 def create_database_if_not_exists():
     engine = sqlalchemy.create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
@@ -32,5 +35,3 @@ def create_database_if_not_exists():
         print("Base de dados já existe!")
 
 create_database_if_not_exists()
-
-from pinterest import routes

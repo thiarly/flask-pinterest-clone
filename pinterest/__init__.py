@@ -15,13 +15,11 @@ else:
 
 app.config["UPLOAD_FOLDER"] = "static/image/fotos_post/"
 
-database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "homepage"
 
-from pinterest import routes
-from pinterest.models import Usuario
+database = SQLAlchemy(app)
 
 def create_database_if_not_exists():
     engine = sqlalchemy.create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
@@ -35,4 +33,4 @@ def create_database_if_not_exists():
 
 create_database_if_not_exists()
 
-
+from pinterest import routes

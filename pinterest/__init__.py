@@ -26,17 +26,17 @@ from pinterest import routes
 
 
 
-# from pinterest.models import Usuario, Foto
+from pinterest import models
 
-# engine = sqlalchemy.create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
-# inspector = sqlalchemy.inspect(engine)
-# if not inspector.has_table('usuario'):
-#     with app.app_context():
-#         database.drop_all()
-#         database.create_all()
-#         print("Base de dados criada com sucesso!")
-# else:
-#     print("Base de dados já existe!")
+engine = sqlalchemy.create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
+inspector = sqlalchemy.inspect(engine)
+if not inspector.has_table('usuario'):
+    with app.app_context():
+        database.drop_all()
+        database.create_all()
+        print("Base de dados criada com sucesso!")
+else:
+    print("Base de dados já existe!")
 
 
 

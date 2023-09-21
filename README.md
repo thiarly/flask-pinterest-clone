@@ -2,6 +2,11 @@
 
 Você pode acessar o projeto pelo link: [Flask Pinterest Clone](https://flask-pinterest-clone-production.up.railway.app/?next=%2Fperfil%2F2).
 
+
+<img width="1426" alt="Screenshot 2023-09-21 at 09 43 48" src="https://github.com/thiarly/flask-pinterest-clone/assets/13594903/033def63-faa4-4b9d-b525-69353d58763a">
+
+
+
 ## Descrição
 
 Este é um clone do Pinterest, construído usando Flask, que permite aos usuários compartilhar imagens e interagir com o conteúdo de outros usuários. O projeto está hospedado no [Railway](https://railway.app/).
